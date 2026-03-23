@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | سياسة الخصوصية</title>
+    
+    <!-- Importing Family-Friendly & Professional Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #F0F8FF; /* Alice Blue - soft pastel background */
+            --card-bg: #FFFFFF;
+            --text-dark: #2C3E50;
+            --text-muted: #546E7A;
+            --accent-blue: #3498DB;
+            --accent-light: #E1F5FE;
+            --border-color: #EDF2F7;
+            
+            --font-en: 'Nunito', sans-serif;
+            --font-ar: 'Cairo', sans-serif;
+        }
+
+        /* Dark Theme Variables */
+        body[data-theme="dark"] {
+            --bg-color: #0F172A; /* Deep dark slate */
+            --card-bg: #1E293B;  /* Lighter slate for cards */
+            --text-dark: #F8FAFC; /* Off-white text */
+            --text-muted: #CBD5E1; /* Muted light gray */
+            --border-color: #334155;
+            --accent-light: rgba(52, 152, 219, 0.15); /* Semi-transparent accent */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Language Visibility & Direction Rules */
+        body[data-lang="en"] .show-ar { display: none !important; }
+        body[data-lang="ar"] .show-en { display: none !important; }
+        
+        body[data-lang="ar"] {
+            direction: rtl;
+            font-family: var(--font-ar);
+        }
+        
+        body[data-lang="en"] {
+            direction: ltr;
+            font-family: var(--font-en);
+        }
+
+        .container {
+            max-width: 800px; /* Reduced width for better single-column reading */
+            margin: 0 auto;
+        }
+
+        /* Top Bar & Toggle Buttons */
+        .top-controls {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center; /* هذه الإضافة ستجعل الأزرار على نفس الخط تماماً */
+            gap: 12px;
+            margin-bottom: 2rem;
+        }
+        
+        body[data-lang="ar"] .top-controls {
+            justify-content: flex-end; /* In RTL, flex-end pushes to the left visually */
+        }
+
+        .control-btn {
+            background-color: var(--card-bg);
+            color: var(--accent-blue);
+            border: 2px solid var(--accent-blue);
+            padding: 8px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.1);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .control-btn.icon-only {
+            padding: 8px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+        }
+
+        .control-btn:hover {
+            background-color: var(--accent-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Header Styles */
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* New Brand Header Styles */
+        .header-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .header-logo {
+            font-size: 3.5rem;
+            margin-bottom: 0.8rem;
+            background: var(--accent-light);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(52, 152, 219, 0.15);
+        }
+
+        .header-brand h2 {
+            color: var(--text-dark);
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .page-header h1 {
+            color: var(--accent-blue);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Card Styles */
+        .policy-card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.08);
+            margin-bottom: 2rem;
+            padding: 2.5rem;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .policy-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(52, 152, 219, 0.12);
+        }
+
+        /* Typography inside Cards */
+        .clause-title {
+            display: flex;
+            align-items: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+        }
+
+        .icon {
+            font-size: 1.8rem;
+            background: var(--accent-light);
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            margin-right: 15px; /* English / LTR */
+        }
+
+        body[data-lang="ar"] .icon {
+            margin-right: 0;
+            margin-left: 15px; /* Arabic / RTL */
+        }
+
+        .clause-text {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* Emphasis elements */
+        .highlight {
+            font-weight: 700;
+            color: var(--text-dark);
+            background: linear-gradient(120deg, rgba(52,152,219,0.15) 0%, rgba(52,152,219,0.15) 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 40%;
+            background-position: 0 80%;
+            padding: 0 4px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border-color);
+            color: var(--text-muted);
+        }
+
+        .email-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 700;
+            word-break: break-word; /* Prevents long emails from breaking mobile layout */
+        }
+
+        /* Enhanced Footer Styles */
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .footer-brand {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-tagline {
+            font-size: 1rem;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 15px;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-links a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-dark);
+            text-decoration: underline;
+        }
+
+        .footer-links .divider {
+            color: var(--border-color);
+            user-select: none;
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 850px) {
+            .policy-card {
+                padding: 1.8rem;
+            }
+            .page-header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Extra Responsive adjustments for small mobile phones */
+        @media (max-width: 480px) {
+            body {
+                padding: 1.5rem 0.8rem;
+            }
+            .policy-card {
+                padding: 1.2rem;
+                border-radius: 15px;
+            }
+            
+            /* Responsive Header Brand */
+            .header-logo {
+                width: 60px;
+                height: 60px;
+                font-size: 2.5rem;
+            }
+            .header-brand h2 {
+                font-size: 1.4rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.7rem;
+            }
+            .clause-title {
+                font-size: 1.2rem;
+            }
+            .icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1.3rem;
+                margin-right: 10px;
+            }
+            body[data-lang="ar"] .icon {
+                margin-left: 10px;
+                margin-right: 0;
+            }
+            .clause-text {
+                font-size: 0.95rem;
+            }
+            .control-btn {
+                padding: 6px 15px;
+                font-size: 0.9rem;
+            }
+            .control-btn.icon-only {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<!-- Initializing the page in English by default, can be changed to 'ar' -->
+<body data-lang="en">
+
+    <div class="container">
+        
+        <!-- Top Controls (Language & Theme) -->
+        <div class="top-controls">
+            <button id="themeToggle" class="control-btn icon-only" title="Toggle Dark Mode">
+                🌙
+            </button>
+            <button id="langToggle" class="control-btn" style="font-family: var(--font-ar);">
+                🌐 العربية
+            </button>
+        </div>
+
+        <header class="page-header">
+            <!-- App Logo & Name -->
+            <div class="header-brand">
+                <div class="header-logo">🕌</div>
+                <h2 class="show-en">Akhlaq Heroes</h2>
+                <h2 class="show-ar">أبطال الأخلاق</h2>
+            </div>
+
+            <h1 class="show-en">Privacy Policy</h1>
+            <h1 class="show-ar">سياسة الخصوصية</h1>
+            <p class="show-en">Last Updated: March 2026</p>
+            <p class="show-ar">آخر تحديث: مارس ٢٠٢٦</p>
+        </header>
+
+        <!-- Card 1: Introduction -->
+        <div class="policy-card">
+            <div class="show-en">
+                <div class="clause-title">
+                    <span class="icon">👋</span> Introduction
+                </div>
+                <p class="clause-text">
+                    Welcome to our Islamic educational application. We are deeply committed to protecting the privacy of your children and families. This policy outlines our strict, offline-first approach to data, designed to provide a secure and pure learning environment based on Islamic values.
+                </p>
+            </div>
+            <div class="show-ar">
+                <div class="clause-title">
+                    <span class="icon">👋</span> المقدمة
+                </div>
+                <p class="clause-text">
+                    مرحباً بكم في تطبيقنا التعليمي الإسلامي. نحن نلتزم بشدة بحماية خصوصية أطفالكم وعائلاتكم. توضح هذه السياسة نهجنا الصارم الذي يعتمد على العمل دون اتصال بالإنترنت، والذي تم تصميمه لتوفير بيئة تعليمية آمنة ونقية مبنية على القيم الإسلامية.
+                </p>
+            </div>
+        </div>
+
+        <!-- Card 2: Minimal Data Collection -->
+        <div class="policy-card">
+            <div class="show-en">
+                <div class="clause-title">
+                    <span class="icon">📝</span> Data Collection & Purpose
+                </div>
+                <p class="clause-text">
+                    To provide <span class="highlight">App Personalization</span> and track learning progress, the app requests only minimal information: <span class="highlight">Name, Age, and Gender</span>. This data is used solely to tailor the educational experience to the child's developmental stage. We do not require account creation, email addresses, or phone numbers.
+                </p>
+            </div>
+            <div class="show-ar">
+                <div class="clause-title">
+                    <span class="icon">📝</span> جمع البيانات والغرض منها
+                </div>
+                <p class="clause-text">
+                    لتوفير <span class="highlight">تخصيص التطبيق</span> (App Personalization) وتتبع التقدم التعليمي، يطلب التطبيق معلومات بسيطة جداً فقط: <span class="highlight">الاسم، والعمر، والجنس</span>. تُستخدم هذه البيانات حصرياً لتكييف التجربة التعليمية لتناسب المرحلة العمرية للطفل. نحن لا نطلب إنشاء حساب، ولا نطلب عناوين البريد الإلكتروني أو أرقام الهواتف.
+                </p>
+            </div>
+        </div>
+
+        <!-- Card 3: Local Storage Only (CRITICAL) -->
+        <div class="policy-card">
+            <div class="show-en">
+                <div class="clause-title">
+                    <span class="icon">💾</span> Local Processing & Storage
+                </div>
+                <p class="clause-text">
+                    All data handling relies entirely on <span class="highlight">Local Processing</span>. We do not use remote servers. All collected data is stored strictly <span class="highlight">locally on your device's internal memory</span>. Zero data leaves your phone or tablet. There is absolutely no network transmission of personal information.
+                </p>
+            </div>
+            <div class="show-ar">
+                <div class="clause-title">
+                    <span class="icon">💾</span> المعالجة المحلية والتخزين
+                </div>
+                <p class="clause-text">
+                    تعتمد جميع عمليات التعامل مع البيانات بالكامل على <span class="highlight">المعالجة المحلية</span> (Local Processing). نحن لا نستخدم أي خوادم عن بُعد. جميع البيانات التي يتم جمعها يتم تخزينها حصرياً <span class="highlight">محلياً على الذاكرة الداخلية لجهازك</span>. لا تخرج أي بيانات من هاتفك أو جهازك اللوحي. لا يوجد أي نقل لمعلوماتكم الشخصية عبر الشبكة إطلاقاً.
+                </p>
+            </div>
+        </div>
+
+        <!-- Card 4: No Ads, No Third Parties -->
+        <div class="policy-card">
+            <div class="show-en">
+                <div class="clause-title">
+                    <span class="icon">🛑</span> Families Policy Compliance
+                </div>
+                <p class="clause-text">
+                    Our app strictly complies with the <span class="highlight">Google Play Designed for Families Policy</span>. We have <span class="highlight">zero third-party SDKs</span> integrated. This means there are no advertising networks, no tracking cookies, and no analytics software collecting your child's usage data. We do not sell or share any data with any third parties.
+                </p>
+            </div>
+            <div class="show-ar">
+                <div class="clause-title">
+                    <span class="icon">🛑</span> الامتثال لسياسة العائلات
+                </div>
+                <p class="clause-text">
+                    يتوافق تطبيقنا بشكل صارم مع <span class="highlight">سياسة برنامج "مصمم للعائلات" من Google Play</span>. لا نستخدم <span class="highlight">أي حزم برمجية (SDKs) لجهات خارجية</span>. هذا يعني أنه لا توجد شبكات إعلانية، ولا ملفات تعريف ارتباط للتتبع، ولا برامج تحليلية تراقب بيانات استخدام طفلك. نحن لا نبيع أو نشارك أي بيانات مع أي أطراف خارجية.
+                </p>
+            </div>
+        </div>
+
+        <!-- Card 5: Parental Rights (NEW) -->
+        <div class="policy-card">
+            <div class="show-en">
+                <div class="clause-title">
+                    <span class="icon">🗑️</span> Parental Rights & Deletion
+                </div>
+                <p class="clause-text">
+                    Parents have full control over their child's data. Because all data is stored exclusively on your device, you can delete it at any time by simply <span class="highlight">clearing the app's data/cache</span> in your device settings, or by <span class="highlight">uninstalling the application</span>. No data recovery is possible once deleted from the device.
+                </p>
+            </div>
+            <div class="show-ar">
+                <div class="clause-title">
+                    <span class="icon">🗑️</span> حقوق الوالدين وحذف البيانات
+                </div>
+                <p class="clause-text">
+                    يتمتع الآباء بالسيطرة الكاملة على بيانات أطفالهم. نظراً لأن جميع البيانات يتم تخزينها حصرياً على جهازك، يمكنك حذفها في أي وقت ببساطة عن طريق <span class="highlight">مسح بيانات/ذاكرة التخزين المؤقت للتطبيق</span> من إعدادات جهازك، أو عن طريق <span class="highlight">إلغاء تثبيت التطبيق</span>. لا يمكن استرجاع البيانات بمجرد حذفها من الجهاز.
+                </p>
+            </div>
+        </div>
+
+        <!-- Card 6: COPPA Compliance -->
+        <div class="policy-card">
+            <div class="show-en">
+                <div class="clause-title">
+                    <span class="icon">🛡️</span> COPPA & GDPR-K
+                </div>
+                <p class="clause-text">
+                    We fully comply with the <span class="highlight">Children's Online Privacy Protection Act (COPPA)</span> and the <span class="highlight">General Data Protection Regulation for Kids (GDPR-K)</span>. We do not knowingly collect personal data across the internet from children under 13. By operating entirely in a secure offline environment, we ensure your child's digital footprint remains perfectly private.
+                </p>
+            </div>
+            <div class="show-ar">
+                <div class="clause-title">
+                    <span class="icon">🛡️</span> حماية خصوصية الأطفال (COPPA و GDPR-K)
+                </div>
+                <p class="clause-text">
+                    نحن نلتزم بالكامل بـ <span class="highlight">قانون حماية خصوصية الأطفال على الإنترنت (COPPA)</span> و <span class="highlight">اللائحة العامة لحماية البيانات للأطفال (GDPR-K)</span>. نحن لا نجمع عن قصد أي بيانات شخصية عبر الإنترنت من الأطفال دون سن 13 عاماً. من خلال العمل بالكامل في بيئة آمنة غير متصلة بالإنترنت، نضمن أن البصمة الرقمية لطفلك تظل خاصة تماماً.
+                </p>
+            </div>
+        </div>
+
+        <!-- Card 7: Contact Us -->
+        <div class="policy-card">
+            <div class="show-en">
+                <div class="clause-title">
+                    <span class="icon">✉️</span> Contact Us
+                </div>
+                <p class="clause-text">
+                    If you have any questions or concerns regarding our privacy practices or how we protect your family's data, please feel free to reach out to us at: <br>
+                    <a href="mailto:support@akhlaqheroes.com" class="email-link">support@akhlaqheroes.com</a>
+                </p>
+            </div>
+            <div class="show-ar">
+                <div class="clause-title">
+                    <span class="icon">✉️</span> اتصل بنا
+                </div>
+                <p class="clause-text">
+                    إذا كانت لديك أي أسئلة أو استفسارات حول ممارسات الخصوصية الخاصة بنا أو كيفية حمايتنا لبيانات عائلتك، فلا تتردد في التواصل معنا عبر: <br>
+                    <a href="mailto:support@akhlaqheroes.com" class="email-link">support@akhlaqheroes.com</a>
+                </p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <!-- App Name / Brand -->
+                <div class="footer-brand">
+                    <span class="show-en">🕌 Akhlaq Heroes</span>
+                    <span class="show-ar">🕌 أبطال الأخلاق</span>
+                </div>
+                
+                <!-- Tagline -->
+                <p class="footer-tagline">
+                    <span class="show-en">Designed with care for families. 100% Offline, 100% Secure.</span>
+                    <span class="show-ar">صُمم بعناية للعائلات. يعمل 100٪ بدون اتصال بالإنترنت، آمن 100٪.</span>
+                </p>
+
+                <!-- Helpful Links -->
+                <div class="footer-links">
+                    <a href="#" class="show-en">Terms of Service</a>
+                    <a href="#" class="show-ar">شروط الاستخدام</a>
+                    
+                    <span class="divider">•</span>
+                    
+                    <a href="mailto:support@akhlaqheroes.com" class="show-en">Support</a>
+                    <a href="mailto:support@akhlaqheroes.com" class="show-ar">الدعم الفني</a>
+                </div>
+
+                <!-- Copyright -->
+                <p class="footer-copyright">
+                    <span class="show-en">&copy; 2026 Akhlaq Heroes. All rights reserved.</span>
+                    <span class="show-ar">&copy; ٢٠٢٦ أبطال الأخلاق. جميع الحقوق محفوظة.</span>
+                </p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Script to Handle Language and Theme Toggle -->
+    <script>
+        // --- Language Toggle Logic ---
+        const langToggleBtn = document.getElementById('langToggle');
+        
+        langToggleBtn.addEventListener('click', () => {
+            const currentLang = document.body.getAttribute('data-lang');
+            
+            if (currentLang === 'en') {
+                // Switch to Arabic
+                document.body.setAttribute('data-lang', 'ar');
+                langToggleBtn.innerHTML = '🌐 English';
+                langToggleBtn.style.fontFamily = 'var(--font-en)';
+            } else {
+                // Switch to English
+                document.body.setAttribute('data-lang', 'en');
+                langToggleBtn.innerHTML = '🌐 العربية';
+                langToggleBtn.style.fontFamily = 'var(--font-ar)';
+            }
+        });
+
+        // --- Theme (Dark/Light) Toggle Logic ---
+        const themeToggleBtn = document.getElementById('themeToggle');
+        
+        // Check system preference on load
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.setAttribute('data-theme', 'dark');
+            themeToggleBtn.innerHTML = '☀️';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.body.getAttribute('data-theme');
+            
+            if (currentTheme === 'dark') {
+                // Switch to Light
+                document.body.removeAttribute('data-theme');
+                themeToggleBtn.innerHTML = '🌙';
+            } else {
+                // Switch to Dark
+                document.body.setAttribute('data-theme', 'dark');
+                themeToggleBtn.innerHTML = '☀️';
+            }
+        });
+    </script>
+</body>
+</html>
