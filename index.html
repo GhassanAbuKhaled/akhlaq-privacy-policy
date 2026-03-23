@@ -575,8 +575,8 @@
 
                 <!-- Copyright -->
                 <p class="footer-copyright">
-                    <span class="show-en">&copy; 2026 Akhlaq Heroes. All rights reserved.</span>
-                    <span class="show-ar">&copy; ٢٠٢٦ أبطال الأخلاق. جميع الحقوق محفوظة.</span>
+                    <span class="show-en">&copy; <span id="copyrightYearEn"></span> Akhlaq Heroes. All rights reserved.</span>
+                    <span class="show-ar">&copy; <span id="copyrightYearAr"></span> أبطال الأخلاق. جميع الحقوق محفوظة.</span>
                 </p>
             </div>
         </footer>
@@ -642,6 +642,11 @@
                 document.getElementById('lastUpdatedEn').textContent = 'March 2026';
                 document.getElementById('lastUpdatedAr').textContent = 'مارس ٢٠٢٦';
             });
+
+        // --- Dynamic Copyright Year ---
+        const year = new Date().getFullYear();
+        document.getElementById('copyrightYearEn').textContent = year;
+        document.getElementById('copyrightYearAr').textContent = toArNum(String(year));
     </script>
 </body>
 </html>
