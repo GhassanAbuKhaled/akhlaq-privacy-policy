@@ -72,13 +72,10 @@
         .top-controls {
             display: flex;
             justify-content: flex-end;
-            align-items: center; /* هذه الإضافة ستجعل الأزرار على نفس الخط تماماً */
+            align-items: center;
             gap: 12px;
             margin-bottom: 2rem;
-        }
-        
-        body[data-lang="ar"] .top-controls {
-            justify-content: flex-end; /* In RTL, flex-end pushes to the left visually */
+            direction: ltr;
         }
 
         .control-btn {
@@ -398,8 +395,8 @@
 
             <h1 class="show-en">Privacy Policy</h1>
             <h1 class="show-ar">سياسة الخصوصية</h1>
-            <p class="show-en">Last Updated: March 2026</p>
-            <p class="show-ar">آخر تحديث: مارس ٢٠٢٦</p>
+            <p class="show-en">Last Updated: <span id="lastUpdatedEn">...</span></p>
+            <p class="show-ar">آخر تحديث: <span id="lastUpdatedAr">...</span></p>
         </header>
 
         <!-- Card 1: Introduction -->
@@ -629,6 +626,22 @@
                 themeToggleBtn.innerHTML = '☀️';
             }
         });
+
+        // --- Fetch Last Updated Date from GitHub ---
+        const arMonths = ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+        const toArNum = s => s.replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
+
+        fetch('https://api.github.com/repos/GhassanAbuKhaled/akhlaq-privacy-policy/commits?per_page=1')
+            .then(r => r.json())
+            .then(data => {
+                const date = new Date(data[0].commit.committer.date);
+                document.getElementById('lastUpdatedEn').textContent = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                document.getElementById('lastUpdatedAr').textContent = toArNum(String(date.getDate())) + ' ' + arMonths[date.getMonth()] + ' ' + toArNum(String(date.getFullYear()));
+            })
+            .catch(() => {
+                document.getElementById('lastUpdatedEn').textContent = 'March 2026';
+                document.getElementById('lastUpdatedAr').textContent = 'مارس ٢٠٢٦';
+            });
     </script>
 </body>
 </html>
