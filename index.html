@@ -280,6 +280,32 @@
             user-select: none;
         }
 
+        .footer-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 1rem 0;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border: 1.5px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-muted);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .badge .badge-icon {
+            font-size: 1.1rem;
+        }
+
         .footer-copyright {
             font-size: 0.9rem;
             opacity: 0.7;
@@ -525,13 +551,30 @@
                     <span class="show-en"><img src="adaptive-icon.png" alt="Logo" style="width: 80px; height: 80px; vertical-align: middle; margin-right: 10px;">Akhlaq Heroes</span>
                     <span class="show-ar"><img src="adaptive-icon.png" alt="Logo" style="width: 80px; height: 80px; vertical-align: middle; margin-left: 10px;">أبطال الأخلاق</span>
                 </div>
-                
-                <!-- Tagline -->
-                <p class="footer-tagline">
-                    <span class="show-en">Designed with care for families. 100% Offline, 100% Secure.</span>
-                    <span class="show-ar">صُمم بعناية للعائلات. يعمل 100٪ بدون اتصال بالإنترنت، آمن 100٪.</span>
-                </p>
 
+                <!-- Trust Badges -->
+                <div class="footer-badges">
+                    <div class="badge">
+                        <span class="badge-icon">🛡️</span>
+                        <span class="show-en">COPPA Compliant</span>
+                        <span class="show-ar">متوافق مع COPPA</span>
+                    </div>
+                    <div class="badge">
+                        <span class="badge-icon">📴</span>
+                        <span class="show-en">100% Offline</span>
+                        <span class="show-ar">بدون إنترنت 100٪</span>
+                    </div>
+                    <div class="badge">
+                        <span class="badge-icon">🚫</span>
+                        <span class="show-en">No Ads</span>
+                        <span class="show-ar">بدون إعلانات</span>
+                    </div>
+                    <div class="badge">
+                        <span class="badge-icon">🔒</span>
+                        <span class="show-en">No Third-Party SDKs</span>
+                        <span class="show-ar">بدون أطراف خارجية</span>
+                    </div>
+                </div>
 
                 <!-- Copyright -->
                 <p class="footer-copyright">
